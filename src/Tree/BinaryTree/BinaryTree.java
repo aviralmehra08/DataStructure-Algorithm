@@ -64,8 +64,8 @@ public class BinaryTree
         {
             return;
         }
-        preorder(index*2);
-        preorder(index*2+1);
+        postorder(index*2);
+        postorder(index*2+1);
         System.out.println(array[index]+" ");
     }
     //levelorder
