@@ -143,6 +143,65 @@ public class BinaryTreeLL
         }
         return presentNode;
     }
+    //Delete deepest node
+    public void deletedeepestNode()
+    {
+        Queue<BinaryNode> queue=new LinkedList<BinaryNode>();
+        queue.add(root);
+        BinaryNode previousNode, presentNode=null;
+        while(!queue.isEmpty())
+        {
+            previousNode=presentNode;
+            presentNode=queue.remove();
+            if(presentNode.left==null)
+            {
+                previousNode.right=null;
+                return;
+            }
+            else if(presentNode.right==null)
+            {
+                presentNode.left=null;
+                return;
+            }
+            queue.add(presentNode.left);
+            queue.add(presentNode.right);
+        }
+    }
+    //Delete the given node
+    public void deleteNode(String value)
+    {
+        Queue<BinaryNode> queue=new LinkedList<BinaryNode>();
+        queue.add(root);
+        while(!queue.isEmpty())
+        {
+            BinaryNode presentNode=queue.remove();
+            if(presentNode.value==value)
+            {
+                presentNode.value=getdeepestnode().value;
+                deletedeepestNode();
+                System.out.println("The Node is deleted");
+                return;
+            }
+            else
+            {
+                if(presentNode.left!=null)
+                {
+                    queue.add(presentNode.left);                
+                }
+                if(presentNode.right!=null)
+                {
+                    queue.add(presentNode.right);
+                }
+            }
+            System.out.println("The node does not exist");
+        }   
+    }
+    //Delete Entire Binary Tree
+    public void deleteBT()
+    {
+        root=null;
+        System.out.println("BT has been deleted");
+    }
     public static void main(String args[])
     {
         BinaryTreeLL b=new BinaryTreeLL();
@@ -188,5 +247,9 @@ public class BinaryTreeLL
         // b.postorder(b.root);
         b.levelOrder();
         // b.search("N5");
+        b.deletedeepestNode();
+        b.deleteNode("N3");
+        System.out.println();
+        b.levelOrder();
     }    
 }
