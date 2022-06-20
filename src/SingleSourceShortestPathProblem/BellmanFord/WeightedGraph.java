@@ -1,4 +1,4 @@
-package SingleSourceShortestPathProblem.DijkstrasAlgorithm.BellmanFord;
+package SingleSourceShortestPathProblem.BellmanFord;
 import java.util.*;
 public class WeightedGraph
 {

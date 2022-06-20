@@ -1,4 +1,4 @@
-package SingleSourceShortestPathProblem.BellmanFord;
+package SingleSourceShortestPathProblem.FloydWarshallAlgorithm;
 import java.util.*;
 public class WeightedNode implements Comparable<WeightedNode> {
     public String name;
